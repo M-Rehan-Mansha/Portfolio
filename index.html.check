@@ -1,0 +1,315 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <title>Muhammad Rehan Mansha | E-commerce & Shopify Growth Specialist</title>
+  <!-- Favicon -->
+  <link rel="icon" type="image/jpeg" href="Favicon.jpg">
+  <link rel="apple-touch-icon" href="Favicon.jpg">
+  <meta name="description" content="E-commerce &amp; Shopify growth specialist &#8212; product research, Shopify development, CRO, creative strategy and paid advertising across the complete e-commerce journey." />
+  
+  <meta property="og:title" content="Muhammad Rehan Mansha | E-commerce & Shopify Growth" />
+  <meta property="og:description" content="E-commerce brands, stores and growth systems designed to turn attention into customers." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://yourdomain.com/og-image.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  
+  <meta name="theme-color" content="#faf3e0" id="theme-color-meta" />
+  <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"Person","name":"Muhammad Rehan Mansha","jobTitle":"E-commerce & Shopify Growth Specialist","knowsAbout":["Shopify","E-commerce","Product research","CRO","Meta Ads","TikTok Ads"]}
+  </script>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <div class="cursor-dot" id="cdot" aria-hidden="true"></div>
+  <div class="cursor-ring" id="cring" aria-hidden="true"></div>
+  <div id="load" aria-hidden="true"><span>M R M</span></div>
+  <div id="prog"></div>
+  <div id="glow" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+  <canvas id="bg-particles" aria-hidden="true"></canvas>
+
+  <header id="hd">
+    <div class="wrap nav" id="nav">
+      <a class="logo" href="#top">Muhammad Rehan Mansha</a>
+      <ul id="menu">
+        <li><a href="#about">ABOUT</a></li>
+        <li><a href="#services">SERVICES</a></li>
+        <li><a href="#process">APPROACH</a></li>
+        <li><a href="#work">WORK</a></li>
+        <li><a href="#results">RESULTS</a></li>
+        <li><a href="#contact">CONTACT</a></li>
+      </ul>
+      
+      <button id="theme-toggle" class="theme-btn" aria-label="Toggle theme">
+        <svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+      </button>
+
+      <a class="btn mag-btn" href="#contact">LET'S WORK TOGETHER</a>
+      <button class="burger" id="bg" aria-label="Toggle menu" aria-expanded="false" aria-controls="menu"><i></i><i></i></button>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div class="hero-text">
+          <span class="eyebrow hero-el">E-COMMERCE • SHOPIFY • GROWTH SYSTEMS</span>
+          <h1 class="hero-el split-text">E-commerce brands built to turn attention into <span class="gold">customers.</span></h1>
+          <p class="lead hero-el">I build e-commerce brands, stores and growth systems — from product research and market analysis to Shopify development, conversion optimization, creative strategy and paid advertising.</p>
+          <div class="ctas hero-el">
+            <a class="btn pri mag-btn ripple-btn" href="#work">VIEW MY WORK</a>
+            <a class="btn mag-btn ripple-btn" href="#contact">LET'S WORK TOGETHER</a>
+          </div>
+        </div>
+        <div class="hero-right">
+          <div class="photo-frame-wrap" id="hero-photo-wrap">
+            <svg class="blob-mask-svg" width="0" height="0" aria-hidden="true">
+              <defs>
+                <clipPath id="blob-clip" clipPathUnits="objectBoundingBox">
+                  <path d="M0.52,0.02 C0.72,0.01 0.95,0.1 0.97,0.32 C1.0,0.54 0.94,0.76 0.8,0.88 C0.66,1.0 0.44,1.02 0.27,0.94 C0.1,0.87 -0.02,0.68 0.01,0.5 C0.03,0.3 0.15,0.1 0.32,0.04 C0.38,0.02 0.45,0.01 0.52,0.02 Z" />
+                </clipPath>
+              </defs>
+            </svg>
+            <div class="photo-glow" aria-hidden="true"></div>
+            <div class="photo-frame" id="photo-frame">
+              <div class="photo-img" id="hero-photo"></div>
+            </div>
+            <div class="float-badge float-badge-1"><span>Shopify Expert</span></div>
+            <div class="float-badge float-badge-2"><span>CRO & Growth</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="scroll" aria-hidden="true"></div>
+    </section>
+
+    <div class="marquee" aria-hidden="true">
+      <div class="mtrack">
+        <span>PRODUCT RESEARCH ✦ SHOPIFY ✦ CRO ✦ META ADS ✦ TIKTOK ADS ✦ CREATIVE STRATEGY ✦ OFFER STRATEGY ✦&nbsp;</span>
+        <span>PRODUCT RESEARCH ✦ SHOPIFY ✦ CRO ✦ META ADS ✦ TIKTOK ADS ✦ CREATIVE STRATEGY ✦ OFFER STRATEGY ✦&nbsp;</span>
+      </div>
+    </div>
+
+    <section id="about">
+      <div class="wrap about">
+        <div class="rv">
+          <span class="eyebrow">About Me</span>
+          <h2 class="split-text">Building e-commerce beyond just a <span class="gold">store.</span></h2>
+          <p>I'm Muhammad Rehan Mansha, an E-commerce &amp; Shopify specialist focused on building and improving online businesses. My approach goes far beyond creating a visually attractive store.</p>
+          <p>A successful online business needs the right product, the right positioning, a compelling offer, a strong customer journey and a marketing system that consistently brings qualified traffic. That's where I come in.</p>
+          <p>My goal is simple: build e-commerce systems that are not only beautiful, but commercially focused, conversion-driven and built for growth.</p>
+          <div class="chips">
+            <span>STRATEGY</span><span>PRODUCT RESEARCH</span><span>SHOPIFY</span><span>CRO</span><span>META ADS</span><span>TIKTOK ADS</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="wrap">
+        <span class="eyebrow">What I Do</span>
+        <h2 class="rv split-text">Complete e-commerce <span class="gold">solutions.</span></h2>
+        <div class="svc">
+          <article class="rv tilt-card"><div class="ico"></div><h3>E-commerce Strategy</h3><p>Market, customer &amp; competitor analysis. Positioning, offer strategy and a clear growth direction for the brand.</p></article>
+          <article class="rv tilt-card"><div class="ico"></div><h3>Product Research</h3><p>Products researched on demand, problem-solving ability, competition, perceived value, pricing potential and ad opportunities.</p></article>
+          <article class="rv tilt-card"><div class="ico"></div><h3>Shopify Development</h3><p>Modern stores built around the customer journey — homepage, product pages, offers, trust elements and checkout flow.</p></article>
+          <article class="rv tilt-card"><div class="ico"></div><h3>Conversion Optimization</h3><p>Product presentation, headlines, offers, social proof, CTAs and mobile experience — making the buying decision easier.</p></article>
+          <article class="rv tilt-card"><div class="ico"></div><h3>Product Page &amp; Offer Strategy</h3><p>Pages structured around Problem → Solution → Benefits → Proof → Offer → Action, with bundles, FAQs and strong CTAs.</p></article>
+          <article class="rv tilt-card"><div class="ico"></div><h3>Creative &amp; UGC Strategy</h3><p>Problem-solution videos, demos, UGC-style content, hooks and direct-response concepts that earn attention.</p></article>
+          <article class="rv tilt-card"><div class="ico"></div><h3>Meta &amp; TikTok Ads</h3><p>Testing angles, creatives and audiences across Facebook, Instagram and TikTok — scaling what the data proves.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="process">
+      <div class="wrap">
+        <span class="eyebrow">My Approach</span>
+        <h2 class="rv split-text">Research before building. Data before <span class="gold">scaling.</span></h2>
+        <ol class="tl" id="tl" style="list-style:none;padding:0;margin-bottom:0">
+          <div class="fill" aria-hidden="true"></div>
+          <li class="step"><span class="n">01</span><h3>Research</h3><p>Understand the market, customer, competition and product.</p></li>
+          <li class="step"><span class="n">02</span><h3>Strategy</h3><p>Define positioning, offer, customer journey and growth direction.</p></li>
+          <li class="step"><span class="n">03</span><h3>Build</h3><p>Create the Shopify store and experience around the strategy.</p></li>
+          <li class="step"><span class="n">04</span><h3>Launch</h3><p>Introduce the product through planned creative and ad campaigns.</p></li>
+          <li class="step"><span class="n">05</span><h3>Optimize</h3><p>Study behavior and data to find weaknesses and opportunities.</p></li>
+          <li class="step"><span class="n">06</span><h3>Scale</h3><p>Increase focus on strategies, products and creatives that show potential.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="system">
+      <div class="wrap">
+        <span class="eyebrow">The E-commerce System</span>
+        <h2 class="rv split-text">Every part has a <span class="gold">role.</span></h2>
+        <div class="sys rv" aria-label="Product, Offer, Creative, Store, Traffic, Conversion, Optimization">
+          <div class="node tilt-card"><b>Product</b><p>Solves a real problem or creates meaningful value?</p></div>
+          <em>↓</em>
+          <div class="node tilt-card"><b>Offer</b><p>A compelling reason to buy now?</p></div>
+          <em>↓</em>
+          <div class="node tilt-card"><b>Creative</b><p>Captures attention and communicates value?</p></div>
+          <em>↓</em>
+          <div class="node tilt-card"><b>Store</b><p>Builds confidence and simplifies buying?</p></div>
+          <em>↓</em>
+          <div class="node tilt-card"><b>Traffic</b><p>Reaching the right people?</p></div>
+          <em>↓</em>
+          <div class="node tilt-card"><b>Conversion</b><p>Are visitors becoming customers?</p></div>
+          <em>↓</em>
+          <div class="node tilt-card"><b>Optimization</b><p>What can the data tell us?</p></div>
+        </div>
+        <p class="note rv">When these parts work together, the store becomes more than a website — it becomes a growth system.</p>
+      </div>
+    </section>
+
+    <section id="why">
+      <div class="wrap">
+        <span class="eyebrow">Why Work With Me</span>
+        <h2 class="rv split-text">I don't look at e-commerce from only one <span class="gold">side.</span></h2>
+        <div class="why">
+          <div class="card rv tilt-card"><div class="in"><h3>Strategy first</h3><p>Every decision starts with the market, the customer and the offer.</p></div></div>
+          <div class="card rv tilt-card"><div class="in"><h3>Complete system view</h3><p>Product + market + offer + store + creative + traffic + conversion — connected.</p></div></div>
+          <div class="card rv tilt-card"><div class="in"><h3>Customer perspective</h3><p>I look at the business the way a real buyer experiences it — not as isolated tasks.</p></div></div>
+          <div class="card rv tilt-card"><div class="in"><h3>Data over claims</h3><p>Test, measure, improve. Every step is guided by evidence.</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="expertise">
+      <div class="wrap">
+        <span class="eyebrow">Expertise</span>
+        <h2 class="rv split-text">Skills &amp; areas of <span class="gold">focus.</span></h2>
+        <div class="exp">
+          <div class="expcol rv"><h3>E-commerce</h3><ul><li>E-commerce Strategy</li><li>Product Research</li><li>Market Research</li><li>Competitor Analysis</li><li>Product Positioning</li><li>Offer Strategy</li><li>Customer Journey</li></ul></div>
+          <div class="expcol rv"><h3>Shopify</h3><ul><li>Store Development</li><li>Store Design</li><li>Product Page Optimization</li><li>Conversion Rate Optimization</li><li>Mobile Optimization</li><li>Store Structure</li><li>Customization</li></ul></div>
+          <div class="expcol rv"><h3>Marketing</h3><ul><li>Meta Ads</li><li>Facebook &amp; Instagram Ads</li><li>TikTok Ads</li><li>Creative Strategy</li><li>UGC Strategy</li><li>Direct Response</li></ul></div>
+          <div class="expcol rv"><h3>Content &amp; Conversion</h3><ul><li>Product Copywriting</li><li>Ad Copy</li><li>Landing Page Structure</li><li>CTA Strategy</li><li>Bundle Strategy</li><li>Trust &amp; Social Proof</li></ul></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="work">
+      <div class="wrap">
+        <span class="eyebrow">Case Studies</span>
+        <h2 class="rv split-text">Selected <span class="gold">work.</span></h2>
+        <div class="cards" id="projects"></div>
+      </div>
+    </section>
+
+    <section id="results">
+      <div class="wrap">
+        <span class="eyebrow">Results</span>
+        <h2 class="rv split-text">Build with data. Improve with <span class="gold">evidence.</span></h2>
+        <div class="res">
+          <div class="rescard rv tilt-card"><b>Ad Performance</b><p>Spend, CTR, CPC, CPM and conversion data from real campaigns.</p></div>
+          <div class="rescard rv tilt-card"><b>Store Performance</b><p>Conversion rate, engagement and customer behavior insights.</p></div>
+          <div class="rescard rv tilt-card"><b>Growth</b><p>Revenue, orders and other verified business metrics.</p></div>
+          <div class="rescard rv tilt-card"><b>Creative Performance</b><p>Testing hooks, formats and product angles to find winners.</p></div>
+        </div>
+        <p class="note rv">Only verified results are displayed here. Case-study data is updated as campaigns complete.</p>
+      </div>
+    </section>
+
+    <section id="philosophy">
+      <div class="wrap two">
+        <div class="rv"><span class="eyebrow">My Philosophy</span><h2 class="split-text">A beautiful store is not <span class="gold">enough.</span></h2></div>
+        <div class="rv">
+          <p>A store can have perfect colors, animations and typography and still fail to generate sales. Because e-commerce success isn't determined by design alone.</p>
+          <p style="margin-top:1rem">It comes from understanding who you're selling to, what problem you're solving, why they should choose you, why they should trust you — and why they should buy. That is the mindset I bring into every project.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="story">
+      <div class="wrap two" style="align-items:center">
+        <div class="rv"><span class="eyebrow">About Rehan</span><h2 class="split-text">More than just <span class="gold">Shopify.</span></h2></div>
+        <div class="rv">
+          <p>My journey into e-commerce started with a simple interest in understanding how online businesses actually work. Over time, that interest became a deeper focus on Shopify, product research, digital marketing, conversion optimization and e-commerce strategy.</p>
+          <p style="margin-top:1rem">Instead of specializing in only one part of the process, I chose to understand how the entire system connects — and I'm continuously learning, testing and studying what makes customers click, trust and buy.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <div class="wrap">
+        <h2 class="rv split-text">Let's build something that <span class="gold">sells.</span></h2>
+        <p class="rv" style="margin-inline:auto">Launching a new product, building a Shopify store, or improving an existing business? Tell me where you're stuck — I'll help you identify the next step.</p>
+        <a class="btn pri mag-btn ripple-btn" href="#contact">START A PROJECT</a>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="wrap two" style="align-items:start">
+        <div class="rv">
+          <span class="eyebrow">Contact</span>
+          <h2>Muhammad Rehan <span class="gold">Mansha</span></h2>
+          <p>E-commerce &amp; Shopify Growth Specialist — Lahore, Pakistan. Available for e-commerce projects, Shopify development, store optimization, product research and growth strategy.</p>
+          <div class="direct" id="direct"></div>
+          <div class="cinfo">
+            <p><b>Email</b> — <span id="cemail">rehanmanshallc@gmail.com</span></p>
+            <p><b>Instagram</b> — <a href="https://www.instagram.com/rehanmanshallc" target="_blank" rel="noopener">@rehanmanshallc</a></p>
+            <p><b>Location</b> — Lahore, Pakistan</p>
+          </div>
+        </div>
+        <form id="f" class="rv" novalidate>
+          <div class="row">
+            <label for="name">Name</label>
+            <input id="name" name="name" required autocomplete="name" placeholder="Your full name" />
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" required autocomplete="email" placeholder="your@email.com" />
+          </div>
+          <div class="row">
+            <label for="type">Project type</label>
+            <select id="type" name="type">
+              <option>Shopify Store</option>
+              <option>Store Optimization</option>
+              <option>Product Research</option>
+              <option>E-commerce Strategy</option>
+              <option>Meta / TikTok Ads</option>
+              <option>Creative &amp; UGC Strategy</option>
+              <option>Other</option>
+            </select>
+            <label for="budget">Budget range</label>
+            <select id="budget" name="budget">
+              <option>Not sure yet</option>
+              <option>Under $500</option>
+              <option>$500 – $1,500</option>
+              <option>$1,500 – $5,000</option>
+              <option>$5,000+</option>
+            </select>
+          </div>
+          <label for="message">Message</label>
+          <textarea id="message" name="message" required placeholder="Tell me what you're building, where you're stuck and where you want to go…"></textarea>
+          <button class="btn pri mag-btn ripple-btn" type="submit">SEND INQUIRY</button>
+          <p id="msg" role="status"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div><b>REHAN</b><small>E-COMMERCE • SHOPIFY • GROWTH</small><small style="color:var(--gold)">BUILD. OPTIMIZE. GROW.</small></div>
+      <ul id="fl">
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <p class="copy">© <span id="yr"></span> Muhammad Rehan Mansha. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
