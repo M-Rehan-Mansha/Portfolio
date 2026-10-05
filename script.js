@@ -1,13 +1,13 @@
 /* ===== THEME TOGGLE LOGIC (Runs Immediately) ===== */
-(function() {
+(function () {
   const html = document.documentElement;
   const metaTheme = document.getElementById('theme-color-meta');
   const savedTheme = localStorage.getItem('theme');
   if (savedTheme === 'dark') {
     html.classList.add('dark-mode');
-    if(metaTheme) metaTheme.content = '#0a0a0b';
+    if (metaTheme) metaTheme.content = '#0a0a0b';
   } else {
-    if(metaTheme) metaTheme.content = '#faf3e0';
+    if (metaTheme) metaTheme.content = '#faf3e0';
   }
 })();
 
@@ -70,7 +70,7 @@ var PROJECTS = [
   }
 
   d.getElementById("yr").textContent = new Date().getFullYear();
-  
+
   addEventListener("load", function () {
     setTimeout(function () {
       d.getElementById("load").classList.add("done");
@@ -97,11 +97,11 @@ var PROJECTS = [
   }).join("");
 
   var L = [
-      ["Facebook", CONFIG.facebook],
-      ["Instagram", CONFIG.instagram],
-      ["LinkedIn", CONFIG.linkedin],
-      ["Email", CONFIG.email ? "mailto:" + CONFIG.email : ""],
-    ],
+    ["Facebook", CONFIG.facebook],
+    ["Instagram", CONFIG.instagram],
+    ["LinkedIn", CONFIG.linkedin],
+    ["Email", CONFIG.email ? "mailto:" + CONFIG.email : ""],
+  ],
     ds = d.getElementById("direct"),
     fl = d.getElementById("fl");
 
@@ -136,7 +136,7 @@ var PROJECTS = [
   });
 
   var pr = d.getElementById("prog"), hd = d.getElementById("hd"), tl = d.getElementById("tl"),
-      steps = tl.querySelectorAll(".step"), tk = false;
+    steps = tl.querySelectorAll(".step"), tk = false;
   function onS() {
     tk = false;
     var h = d.documentElement.scrollHeight - innerHeight, y = scrollY;
@@ -158,7 +158,7 @@ var PROJECTS = [
     addEventListener("pointermove", function (e) {
       g.style.transform = "translate(" + e.clientX + "px," + e.clientY + "px)";
     }, { passive: true });
-    
+
     d.querySelectorAll(".card .in, .svc article, .node").forEach(function (c) {
       c.addEventListener("pointermove", function (e) {
         var b = c.getBoundingClientRect(), x = (e.clientX - b.left) / b.width - 0.5, y = (e.clientY - b.top) / b.height - 0.5;
@@ -178,22 +178,22 @@ var PROJECTS = [
   }
 
   var f = d.getElementById("f"), m = d.getElementById("msg"),
-      submitBtn = f.querySelector('button[type="submit"]'),
-      originalBtnText = submitBtn.textContent;
+    submitBtn = f.querySelector('button[type="submit"]'),
+    originalBtnText = submitBtn.textContent;
 
   f.addEventListener("submit", function (e) {
     e.preventDefault();
     m.textContent = "";
     m.style.color = "var(--mute)";
-    
+
     var v = Object.fromEntries(new FormData(f));
-    
+
     if (!v.name.trim() || !/^\S+@\S+\.\S+$/.test(v.email) || !v.message.trim()) {
       m.style.color = "#e0a39a";
       m.textContent = "Please fill in all required fields with valid information.";
-      if(!v.name.trim()) f.querySelector('[name="name"]').style.borderColor = "#e0a39a";
-      if(!/^\S+@\S+\.\S+$/.test(v.email)) f.querySelector('[name="email"]').style.borderColor = "#e0a39a";
-      if(!v.message.trim()) f.querySelector('[name="message"]').style.borderColor = "#e0a39a";
+      if (!v.name.trim()) f.querySelector('[name="name"]').style.borderColor = "#e0a39a";
+      if (!/^\S+@\S+\.\S+$/.test(v.email)) f.querySelector('[name="email"]').style.borderColor = "#e0a39a";
+      if (!v.message.trim()) f.querySelector('[name="message"]').style.borderColor = "#e0a39a";
       return;
     }
 
@@ -210,7 +210,7 @@ var PROJECTS = [
         "&body=" + encodeURIComponent("Name: " + v.name + "\nEmail: " + v.email + "\nBudget: " + v.budget + "\n\nMessage:\n" + v.message);
     }
 
-    setTimeout(function() {
+    setTimeout(function () {
       submitBtn.disabled = false;
       submitBtn.textContent = originalBtnText;
       submitBtn.style.opacity = "1";
@@ -220,8 +220,8 @@ var PROJECTS = [
     }, 1000);
   });
 
-  f.querySelectorAll('input, textarea, select').forEach(function(el) {
-    el.addEventListener('input', function() { this.style.borderColor = ""; });
+  f.querySelectorAll('input, textarea, select').forEach(function (el) {
+    el.addEventListener('input', function () { this.style.borderColor = ""; });
   });
 
   d.querySelectorAll(".ripple-btn").forEach(function (btn) {
@@ -247,12 +247,12 @@ var PROJECTS = [
 
   const themeToggle = d.getElementById('theme-toggle');
   const metaTheme = d.getElementById('theme-color-meta');
-  
+
   themeToggle.addEventListener('click', () => {
     d.documentElement.classList.toggle('dark-mode');
     const isDark = d.documentElement.classList.contains('dark-mode');
     localStorage.setItem('theme', isDark ? 'dark' : 'light');
-    if(metaTheme) metaTheme.content = isDark ? '#0a0a0b' : '#faf3e0';
+    if (metaTheme) metaTheme.content = isDark ? '#0a0a0b' : '#faf3e0';
   });
 
 })();
@@ -260,7 +260,7 @@ var PROJECTS = [
 /* ============ VIP 3D & MOTION LAYER ============ */
 (function () {
   var rm = matchMedia("(prefers-reduced-motion: reduce)").matches,
-      fine = matchMedia("(hover:hover) and (pointer:fine)").matches;
+    fine = matchMedia("(hover:hover) and (pointer:fine)").matches;
 
   if (window.THREE && !rm) {
     var box = document.getElementById("scene3d");
@@ -369,4 +369,78 @@ var PROJECTS = [
       });
     }
   }
+})();
+
+/* ===== PAYMENT MODAL ===== */
+(function () {
+  var WA_NUMBER = '923474299799'; // ← replace with real WhatsApp number (no + or spaces)
+
+  var modal = document.getElementById('payment-modal');
+  var card = document.getElementById('pmodal-card');
+  var btnClose = document.getElementById('pmodal-close');
+  var titleEl = document.getElementById('pmodal-title');
+  var priceEl = document.getElementById('pmodal-price');
+  var waLink = document.getElementById('pmodal-wa');
+  var contactLink = document.getElementById('pmodal-contact');
+
+  if (!modal) return;
+
+  /* ── Open ── */
+  function openModal(plan, price) {
+    titleEl.textContent = plan + ' Plan';
+    priceEl.textContent = price;
+    var msg = encodeURIComponent(
+      'Hi Rehan! I want to enroll in the *' + plan + ' Plan* (' + price + ' — One-Time Payment). Please guide me on next steps.'
+    );
+    waLink.href = 'https://wa.me/' + WA_NUMBER + '?text=' + msg;
+    modal.removeAttribute('hidden');
+    document.body.style.overflow = 'hidden';
+    setTimeout(function () { modal.classList.add('pmodal--open'); }, 10);
+    btnClose.focus();
+  }
+
+  /* ── Close ── */
+  function closeModal() {
+    modal.classList.remove('pmodal--open');
+    document.body.style.overflow = '';
+    setTimeout(function () { modal.setAttribute('hidden', ''); }, 320);
+  }
+
+  /* ── Wire pricing buttons ── */
+  document.querySelectorAll('[data-plan][data-price]').forEach(function (btn) {
+    btn.addEventListener('click', function (e) {
+      e.preventDefault();
+      openModal(btn.dataset.plan, btn.dataset.price);
+    });
+  });
+
+  /* ── Close triggers ── */
+  btnClose.addEventListener('click', closeModal);
+
+  modal.addEventListener('click', function (e) {
+    if (!card.contains(e.target)) closeModal();
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && !modal.hasAttribute('hidden')) closeModal();
+  });
+
+  /* ── Close modal → scroll to contact ── */
+  if (contactLink) {
+    contactLink.addEventListener('click', function () {
+      closeModal();
+    });
+  }
+
+  /* ── Focus trap ── */
+  modal.addEventListener('keydown', function (e) {
+    if (e.key !== 'Tab') return;
+    var focusable = Array.from(card.querySelectorAll('a,button,[tabindex]:not([tabindex="-1"])'));
+    var first = focusable[0], last = focusable[focusable.length - 1];
+    if (e.shiftKey) {
+      if (document.activeElement === first) { e.preventDefault(); last.focus(); }
+    } else {
+      if (document.activeElement === last) { e.preventDefault(); first.focus(); }
+    }
+  });
 })();
