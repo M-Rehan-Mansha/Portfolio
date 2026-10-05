@@ -29,33 +29,6 @@
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" />
   <link rel="stylesheet" href="styles.css" />
-
-  <style>
-    /* Resume PDF viewer */
-    #resume iframe {
-      min-height: 900px;
-    }
-
-    @media (max-width: 768px) {
-      #resume iframe {
-        height: 700px !important;
-        min-height: 700px;
-      }
-
-      #resume .btn {
-        width: 100%;
-        max-width: 320px;
-        text-align: center;
-      }
-    }
-
-    @media (max-width: 480px) {
-      #resume iframe {
-        height: 600px !important;
-        min-height: 600px;
-      }
-    }
-  </style>
 </head>
 
 <body>
@@ -76,7 +49,25 @@
         <li><a href="#services">Services</a></li>
         <li><a href="#process">Approach</a></li>
         <li><a href="#work">Work</a></li>
-        <li><a href="#resume">Resume</a></li>
+
+        <li class="resume-menu">
+          <details>
+            <summary>
+              Resume <span class="resume-arrow">⌄</span>
+            </summary>
+
+            <div class="resume-dropdown">
+              <a href="resume.pdf" target="_blank" rel="noopener noreferrer">
+                View Resume
+              </a>
+
+              <a href="resume.pdf" download="Muhammad-Rehan-Mansha-Resume.pdf">
+                Download Resume
+              </a>
+            </div>
+          </details>
+        </li>
+
         <li><a href="#results">Results</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
@@ -103,6 +94,7 @@
       </div>
     </div>
   </header>
+
   <main id="top">
     <section class="hero">
       <div class="wrap hero-grid">
@@ -387,53 +379,6 @@
       </div>
     </section>
 
-
-    <section id="resume">
-      <div class="wrap">
-
-        <span class="eyebrow">Resume</span>
-
-        <h2 class="rv split-text">
-          My <span class="gold">Resume.</span>
-        </h2>
-
-        <p class="rv" style="max-width:720px;margin:0 auto 2rem;">
-          View my latest professional resume below, or open it in a new tab to read it in full.
-        </p>
-
-        <div class="rv"
-          style="display:flex;justify-content:center;align-items:center;gap:1rem;flex-wrap:wrap;margin-bottom:2.5rem;">
-          <a class="btn pri mag-btn ripple-btn" href="resume.pdf" target="_blank" rel="noopener noreferrer">
-            VIEW FULL RESUME
-          </a>
-
-          <a class="btn mag-btn ripple-btn" href="resume.pdf" download="Muhammad-Rehan-Mansha-Resume.pdf">
-            DOWNLOAD RESUME
-          </a>
-        </div>
-
-        <div class="rv" style="
-          width:100%;
-          max-width:1000px;
-          margin:0 auto;
-          border:1px solid rgba(128,128,128,.25);
-          border-radius:18px;
-          overflow:hidden;
-          background:rgba(128,128,128,.05);
-          box-shadow:0 20px 60px rgba(0,0,0,.12);
-        ">
-          <iframe src="resume.pdf" title="Muhammad Rehan Mansha Resume" width="100%" height="900"
-            style="display:block;width:100%;height:900px;border:0;background:#fff;" loading="lazy">
-          </iframe>
-        </div>
-
-        <p class="rv" style="text-align:center;margin:1.25rem auto 0;opacity:.7;font-size:.9rem;">
-          If the preview does not load in your browser, use "View Full Resume" to open the PDF in a new tab.
-        </p>
-
-      </div>
-    </section>
-
     <section id="results">
       <div class="wrap">
         <span class="eyebrow">Results</span>
@@ -564,6 +509,28 @@
       <p class="copy">Â© <span id="yr"></span> Muhammad Rehan Mansha. All Rights Reserved.</p>
     </div>
   </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const resumeMenu = document.querySelector('.resume-menu');
+      const resumeToggle = document.querySelector('.resume-toggle');
+
+      if (resumeMenu && resumeToggle) {
+        resumeToggle.addEventListener('click', function (event) {
+          event.stopPropagation();
+          const isOpen = resumeMenu.classList.toggle('open');
+          resumeToggle.setAttribute('aria-expanded', isOpen);
+        });
+
+        document.addEventListener('click', function (event) {
+          if (!resumeMenu.contains(event.target)) {
+            resumeMenu.classList.remove('open');
+            resumeToggle.setAttribute('aria-expanded', 'false');
+          }
+        });
+      }
+    });
+  </script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
