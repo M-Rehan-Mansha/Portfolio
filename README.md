@@ -1,4 +1,4 @@
-# 🛒 Rehan Mansha | E-commerce Entrepreneur
+# 🛒 Muhammad Rehan Mansha | E-commerce Entrepreneur
 
 <p align="center">
   <img src="Favicon.jpg" alt="Rehan Mansha" width="100" />
