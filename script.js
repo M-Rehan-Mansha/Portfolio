@@ -372,14 +372,14 @@ var PROJECTS = [
 })();
 
 /* ===== PAYMENT MODAL ===== */
-(function () {
+function initPaymentModal() {
   var WA_NUMBER = '923474299799';
 
   var modal = document.getElementById('payment-modal');
   var card = document.getElementById('pmodal-card');
   var btnClose = document.getElementById('close-modal-btn') || document.getElementById('pmodal-close') || document.querySelector('.pmodal-close');
-  var titleEl = document.getElementById('pmodal-title');
-  var waLink = document.getElementById('pmodal-wa');
+  var modalTitle = document.getElementById('modal-plan-title') || document.getElementById('pmodal-title');
+  var whatsappBtn = document.getElementById('modal-whatsapp-btn') || document.getElementById('pmodal-wa');
 
   if (!modal) return;
 
@@ -391,22 +391,21 @@ var PROJECTS = [
 
   /* ── Open Modal with Selected Plan Details ── */
   function openModal(plan, price, duration) {
-    var rawPlan = (plan || 'Mentorship').trim();
-    // Normalize Plan title (e.g., "Starter Plan")
+    var rawPlan = (plan || 'Mentorship Plan').trim();
     var planFormatted = rawPlan.endsWith('Plan') ? rawPlan : rawPlan + ' Plan';
     var rawPrice = (price || '').trim();
     var durationText = (duration || '').trim();
 
     // Dynamic Header: Plan Name — Price PKR [Duration]
-    if (titleEl) {
+    if (modalTitle) {
       var headerDuration = durationText ? ' <span class="pmodal-duration-tag">[' + esc(durationText) + ']</span>' : '';
-      titleEl.innerHTML = esc(planFormatted) + ' &mdash; ' + esc(rawPrice) + headerDuration;
+      modalTitle.innerHTML = esc(planFormatted) + ' &mdash; ' + esc(rawPrice) + headerDuration;
     }
 
-    // WhatsApp Confirmation URL:
-    var msg = 'Hi Rehan! I have transferred the payment for the ' + planFormatted + ' (' + rawPrice + '). Here is my payment receipt.';
-    if (waLink) {
-      waLink.href = 'https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(msg);
+    // Direct WhatsApp Gated Receipt URL:
+    if (whatsappBtn) {
+      var message = 'Hi Rehan! I have transferred the payment for the ' + planFormatted + ' (' + rawPrice + '). Here is my payment receipt.';
+      whatsappBtn.href = 'https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(message);
     }
 
     modal.removeAttribute('hidden');
@@ -427,11 +426,14 @@ var PROJECTS = [
   }
 
   /* ── Wire pricing CTA buttons ── */
-  var ctaButtons = document.querySelectorAll('.open-payment-modal, [data-plan][data-price]');
+  var ctaButtons = document.querySelectorAll('.open-modal-btn, .open-payment-modal, [data-plan][data-price]');
   ctaButtons.forEach(function (btn) {
     btn.addEventListener('click', function (e) {
       e.preventDefault();
-      openModal(btn.dataset.plan, btn.dataset.price, btn.dataset.duration);
+      var plan = btn.getAttribute('data-plan') || btn.dataset.plan;
+      var price = btn.getAttribute('data-price') || btn.dataset.price;
+      var duration = btn.getAttribute('data-duration') || btn.dataset.duration;
+      openModal(plan, price, duration);
     });
   });
 
@@ -482,11 +484,15 @@ var PROJECTS = [
   if (btnClose) btnClose.addEventListener('click', closeModal);
 
   modal.addEventListener('click', function (e) {
-    if (card && !card.contains(e.target)) closeModal();
+    if (e.target === modal || (card && !card.contains(e.target))) {
+      closeModal();
+    }
   });
 
   document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape' && !modal.hasAttribute('hidden')) closeModal();
+    if (e.key === 'Escape' && !modal.hasAttribute('hidden') && !modal.classList.contains('hidden')) {
+      closeModal();
+    }
   });
 
   /* ── Focus trap ── */
@@ -501,4 +507,10 @@ var PROJECTS = [
       if (document.activeElement === last) { e.preventDefault(); first.focus(); }
     }
   });
-})();
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initPaymentModal);
+} else {
+  initPaymentModal();
+}
