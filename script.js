@@ -373,69 +373,122 @@ var PROJECTS = [
 
 /* ===== PAYMENT MODAL ===== */
 (function () {
-  var WA_NUMBER = '923474299799'; // ← replace with real WhatsApp number (no + or spaces)
+  var WA_NUMBER = '923474299799';
 
   var modal = document.getElementById('payment-modal');
   var card = document.getElementById('pmodal-card');
   var btnClose = document.getElementById('pmodal-close');
   var titleEl = document.getElementById('pmodal-title');
-  var priceEl = document.getElementById('pmodal-price');
   var waLink = document.getElementById('pmodal-wa');
-  var contactLink = document.getElementById('pmodal-contact');
+  var copyBtn = document.getElementById('pmodal-copy-btn');
+  var copyTooltip = document.getElementById('copy-tooltip');
+  var accNumEl = document.getElementById('pmodal-acc-num');
 
   if (!modal) return;
 
-  /* ── Open ── */
-  function openModal(plan, price) {
-    titleEl.textContent = plan + ' Plan';
-    priceEl.textContent = price;
-    var msg = encodeURIComponent(
-      'Hi Rehan! I want to enroll in the *' + plan + ' Plan* (' + price + ' — One-Time Payment). Please guide me on next steps.'
-    );
-    waLink.href = 'https://wa.me/' + WA_NUMBER + '?text=' + msg;
+  function esc(s) {
+    return String(s || '').replace(/[&<>"']/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+    });
+  }
+
+  /* ── Open Modal with Selected Plan Details ── */
+  function openModal(plan, price, duration) {
+    var rawPrice = (price || '').replace(/\s*PKR/i, '').trim();
+    var durationText = duration || '';
+
+    // Dynamic Header: Plan Name — Price PKR [Duration]
+    if (titleEl) {
+      titleEl.innerHTML = esc(plan) + ' Plan &mdash; ' + esc(rawPrice) + ' PKR <span class="pmodal-duration-tag">[' + esc(durationText) + ']</span>';
+    }
+
+    // Direct WhatsApp Gated Receipt URL:
+    // https://wa.me/923474299799?text=Hi Rehan! I have transferred the payment for the [Plan_Name] plan ([Price] PKR). Here is my payment receipt.
+    var msg = 'Hi Rehan! I have transferred the payment for the ' + plan + ' plan (' + rawPrice + ' PKR). Here is my payment receipt.';
+    if (waLink) {
+      waLink.href = 'https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(msg);
+    }
+
     modal.removeAttribute('hidden');
     document.body.style.overflow = 'hidden';
     setTimeout(function () { modal.classList.add('pmodal--open'); }, 10);
-    btnClose.focus();
+    if (btnClose) btnClose.focus();
   }
 
-  /* ── Close ── */
+  /* ── Close Modal ── */
   function closeModal() {
     modal.classList.remove('pmodal--open');
     document.body.style.overflow = '';
     setTimeout(function () { modal.setAttribute('hidden', ''); }, 320);
   }
 
-  /* ── Wire pricing buttons ── */
+  /* ── Wire pricing CTA buttons ── */
   document.querySelectorAll('[data-plan][data-price]').forEach(function (btn) {
     btn.addEventListener('click', function (e) {
       e.preventDefault();
-      openModal(btn.dataset.plan, btn.dataset.price);
+      openModal(btn.dataset.plan, btn.dataset.price, btn.dataset.duration);
     });
   });
 
-  /* ── Close triggers ── */
-  btnClose.addEventListener('click', closeModal);
+  /* ── Copy Account / Phone Numbers ── */
+  document.querySelectorAll('.pmodal-copy-btn').forEach(function (btn) {
+    btn.addEventListener('click', function (e) {
+      e.preventDefault();
+      var textToCopy = btn.dataset.copy || (btn.previousElementSibling ? btn.previousElementSibling.textContent.trim() : '');
+      var tooltip = btn.querySelector('.pmodal-copy-tooltip');
+
+      function onCopied() {
+        if (tooltip) tooltip.textContent = 'Copied!';
+        btn.classList.add('copied');
+        setTimeout(function () {
+          if (tooltip) tooltip.textContent = 'Copy';
+          btn.classList.remove('copied');
+        }, 2000);
+      }
+
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(textToCopy).then(onCopied).catch(function () {
+          fallbackCopy(textToCopy, onCopied);
+        });
+      } else {
+        fallbackCopy(textToCopy, onCopied);
+      }
+    });
+  });
+
+  function fallbackCopy(text, cb) {
+    var ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.position = 'fixed';
+    ta.style.opacity = '0';
+    document.body.appendChild(ta);
+    ta.focus();
+    ta.select();
+    try {
+      document.execCommand('copy');
+      if (cb) cb();
+    } catch (err) {
+      console.error('Copy failed', err);
+    }
+    document.body.removeChild(ta);
+  }
+
+  /* ── Close Triggers ── */
+  if (btnClose) btnClose.addEventListener('click', closeModal);
 
   modal.addEventListener('click', function (e) {
-    if (!card.contains(e.target)) closeModal();
+    if (card && !card.contains(e.target)) closeModal();
   });
 
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape' && !modal.hasAttribute('hidden')) closeModal();
   });
 
-  /* ── Close modal → scroll to contact ── */
-  if (contactLink) {
-    contactLink.addEventListener('click', function () {
-      closeModal();
-    });
-  }
-
   /* ── Focus trap ── */
   modal.addEventListener('keydown', function (e) {
     if (e.key !== 'Tab') return;
     var focusable = Array.from(card.querySelectorAll('a,button,[tabindex]:not([tabindex="-1"])'));
+    if (!focusable.length) return;
     var first = focusable[0], last = focusable[focusable.length - 1];
     if (e.shiftKey) {
       if (document.activeElement === first) { e.preventDefault(); last.focus(); }
