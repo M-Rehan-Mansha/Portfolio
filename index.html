@@ -473,7 +473,11 @@
                 </div>
                 <span class="price-type">One-Time Payment</span>
                 <div class="pricing-duration">
-                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    aria-hidden="true">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="12 6 12 12 16 14"></polyline>
+                  </svg>
                   <span>Duration: 1 Month Mentorship</span>
                 </div>
               </div>
@@ -484,8 +488,8 @@
                 <li><span class="feat-icon" aria-hidden="true">✦</span>Community Group Access</li>
                 <li><span class="feat-icon" aria-hidden="true">✦</span>Step-by-Step Store Launch Guide</li>
               </ul>
-              <button class="btn pricing-btn mag-btn ripple-btn" data-plan="Starter" data-price="4,000 PKR" data-duration="1 Month Mentorship"
-                id="cta-starter">Enroll Starter</button>
+              <button class="btn pricing-btn mag-btn ripple-btn open-payment-modal" data-plan="Starter Plan" data-price="4,000 PKR"
+                data-duration="1 Month" id="cta-starter">Enroll Starter</button>
             </div>
           </div>
 
@@ -507,7 +511,11 @@
                 </div>
                 <span class="price-type">One-Time Payment</span>
                 <div class="pricing-duration">
-                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    aria-hidden="true">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="12 6 12 12 16 14"></polyline>
+                  </svg>
                   <span>Duration: 3 Months Mentorship</span>
                 </div>
               </div>
@@ -520,8 +528,8 @@
                 <li><span class="feat-icon" aria-hidden="true">✦</span>TikTok &amp; Meta Ads Campaign Setup</li>
                 <li><span class="feat-icon" aria-hidden="true">✦</span>Priority WhatsApp Direct Support</li>
               </ul>
-              <button class="btn pri pricing-btn mag-btn ripple-btn" data-plan="Professional" data-price="12,000 PKR" data-duration="3 Months Mentorship"
-                id="cta-professional">Join Professional</button>
+              <button class="btn pri pricing-btn mag-btn ripple-btn open-payment-modal" data-plan="Professional Plan" data-price="12,000 PKR"
+                data-duration="3 Months" id="cta-professional">Join Professional</button>
             </div>
           </div>
 
@@ -542,7 +550,11 @@
                 </div>
                 <span class="price-type">One-Time Payment</span>
                 <div class="pricing-duration">
-                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    aria-hidden="true">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="12 6 12 12 16 14"></polyline>
+                  </svg>
                   <span>Duration: Lifetime Mentorship & Support</span>
                 </div>
               </div>
@@ -553,8 +565,8 @@
                 <li><span class="feat-icon" aria-hidden="true">✦</span>Ads Campaign Management &amp; Scaling</li>
                 <li><span class="feat-icon" aria-hidden="true">✦</span>Direct 24/7 Priority Call Access</li>
               </ul>
-              <button class="btn pricing-btn mag-btn ripple-btn" data-plan="Enterprise" data-price="22,000 PKR" data-duration="Lifetime Mentorship & Support"
-                id="cta-enterprise">Book Enterprise</button>
+              <button class="btn pricing-btn mag-btn ripple-btn open-payment-modal" data-plan="Enterprise Plan" data-price="22,000 PKR"
+                data-duration="Lifetime" id="cta-enterprise">Book Enterprise</button>
             </div>
           </div>
 
@@ -671,7 +683,7 @@
   <!-- ── Glassmorphic Payment Modal ── -->
   <div id="payment-modal" class="pmodal-overlay" role="dialog" aria-modal="true" aria-labelledby="pmodal-title" hidden>
     <div class="pmodal-card" id="pmodal-card">
-      <button class="pmodal-close" id="pmodal-close" aria-label="Close modal">
+      <button class="pmodal-close" id="close-modal-btn" aria-label="Close modal">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
           aria-hidden="true">
           <line x1="18" y1="6" x2="6" y2="18" />
@@ -682,7 +694,8 @@
       <!-- Modal Header -->
       <div class="pmodal-header">
         <span class="pmodal-eyebrow">Mentorship Enrollment</span>
-        <h3 class="pmodal-plan" id="pmodal-title">Professional Plan &mdash; 12,000 PKR <span class="pmodal-duration-tag" id="pmodal-duration">[3 Months Mentorship]</span></h3>
+        <h3 class="pmodal-plan" id="pmodal-title">Professional Plan &mdash; 12,000 PKR <span class="pmodal-duration-tag"
+            id="pmodal-duration">[3 Months Mentorship]</span></h3>
         <div class="pmodal-meta-row">
           <span class="pmodal-badge-dot"></span>
           <span class="pmodal-meta-text">Direct 1-on-1 Mentorship &bull; One-Time Payment</span>
@@ -724,8 +737,10 @@
                 <span class="pmodal-label">Account / Raast</span>
                 <div class="pmodal-copy-wrap">
                   <span class="pmodal-val pmodal-mono">98170111719554</span>
-                  <button type="button" class="pmodal-copy-btn" data-copy="98170111719554" title="Copy Account Number" aria-label="Copy Account Number">
-                    <svg class="pmodal-copy-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <button type="button" class="pmodal-copy-btn" data-copy="98170111719554" title="Copy Account Number"
+                    aria-label="Copy Account Number">
+                    <svg class="pmodal-copy-icon" width="13" height="13" viewBox="0 0 24 24" fill="none"
+                      stroke="currentColor" stroke-width="2" aria-hidden="true">
                       <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
                       <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
                     </svg>
@@ -755,8 +770,10 @@
                 <span class="pmodal-label">Account / Phone</span>
                 <div class="pmodal-copy-wrap">
                   <span class="pmodal-val pmodal-mono">03402821631</span>
-                  <button type="button" class="pmodal-copy-btn" data-copy="03402821631" title="Copy JazzCash Number" aria-label="Copy JazzCash Number">
-                    <svg class="pmodal-copy-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <button type="button" class="pmodal-copy-btn" data-copy="03402821631" title="Copy JazzCash Number"
+                    aria-label="Copy JazzCash Number">
+                    <svg class="pmodal-copy-icon" width="13" height="13" viewBox="0 0 24 24" fill="none"
+                      stroke="currentColor" stroke-width="2" aria-hidden="true">
                       <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
                       <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
                     </svg>
@@ -773,10 +790,12 @@
       <div class="pmodal-confirm-section">
         <div class="pmodal-step-tag">Step 2: WhatsApp Confirmation</div>
         <p class="pmodal-instructions">
-          Send payment via Meezan Bank or JazzCash to the details above, then click below to attach your payment receipt.
+          Send payment via Meezan Bank or JazzCash to the details above, then click below to attach your payment
+          receipt.
         </p>
 
-        <a id="pmodal-wa" class="btn pri pmodal-btn pmodal-wa-btn ripple-btn" href="#" target="_blank" rel="noopener noreferrer">
+        <a id="pmodal-wa" class="btn pri pmodal-btn pmodal-wa-btn ripple-btn" href="#" target="_blank"
+          rel="noopener noreferrer">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="flex-shrink:0">
             <path
               d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
@@ -788,7 +807,10 @@
       </div>
 
       <div class="pmodal-footer-note">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          aria-hidden="true">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+        </svg>
         <span>Instant verification &amp; 1-on-1 onboarding session arranged upon receipt verification</span>
       </div>
     </div>

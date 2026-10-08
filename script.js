@@ -377,12 +377,9 @@ var PROJECTS = [
 
   var modal = document.getElementById('payment-modal');
   var card = document.getElementById('pmodal-card');
-  var btnClose = document.getElementById('pmodal-close');
+  var btnClose = document.getElementById('close-modal-btn') || document.getElementById('pmodal-close') || document.querySelector('.pmodal-close');
   var titleEl = document.getElementById('pmodal-title');
   var waLink = document.getElementById('pmodal-wa');
-  var copyBtn = document.getElementById('pmodal-copy-btn');
-  var copyTooltip = document.getElementById('copy-tooltip');
-  var accNumEl = document.getElementById('pmodal-acc-num');
 
   if (!modal) return;
 
@@ -394,22 +391,26 @@ var PROJECTS = [
 
   /* ── Open Modal with Selected Plan Details ── */
   function openModal(plan, price, duration) {
-    var rawPrice = (price || '').replace(/\s*PKR/i, '').trim();
-    var durationText = duration || '';
+    var rawPlan = (plan || 'Mentorship').trim();
+    // Normalize Plan title (e.g., "Starter Plan")
+    var planFormatted = rawPlan.endsWith('Plan') ? rawPlan : rawPlan + ' Plan';
+    var rawPrice = (price || '').trim();
+    var durationText = (duration || '').trim();
 
     // Dynamic Header: Plan Name — Price PKR [Duration]
     if (titleEl) {
-      titleEl.innerHTML = esc(plan) + ' Plan &mdash; ' + esc(rawPrice) + ' PKR <span class="pmodal-duration-tag">[' + esc(durationText) + ']</span>';
+      var headerDuration = durationText ? ' <span class="pmodal-duration-tag">[' + esc(durationText) + ']</span>' : '';
+      titleEl.innerHTML = esc(planFormatted) + ' &mdash; ' + esc(rawPrice) + headerDuration;
     }
 
-    // Direct WhatsApp Gated Receipt URL:
-    // https://wa.me/923474299799?text=Hi Rehan! I have transferred the payment for the [Plan_Name] plan ([Price] PKR). Here is my payment receipt.
-    var msg = 'Hi Rehan! I have transferred the payment for the ' + plan + ' plan (' + rawPrice + ' PKR). Here is my payment receipt.';
+    // WhatsApp Confirmation URL:
+    var msg = 'Hi Rehan! I have transferred the payment for the ' + planFormatted + ' (' + rawPrice + '). Here is my payment receipt.';
     if (waLink) {
       waLink.href = 'https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(msg);
     }
 
     modal.removeAttribute('hidden');
+    modal.classList.remove('hidden');
     document.body.style.overflow = 'hidden';
     setTimeout(function () { modal.classList.add('pmodal--open'); }, 10);
     if (btnClose) btnClose.focus();
@@ -419,11 +420,15 @@ var PROJECTS = [
   function closeModal() {
     modal.classList.remove('pmodal--open');
     document.body.style.overflow = '';
-    setTimeout(function () { modal.setAttribute('hidden', ''); }, 320);
+    setTimeout(function () {
+      modal.setAttribute('hidden', '');
+      modal.classList.add('hidden');
+    }, 320);
   }
 
   /* ── Wire pricing CTA buttons ── */
-  document.querySelectorAll('[data-plan][data-price]').forEach(function (btn) {
+  var ctaButtons = document.querySelectorAll('.open-payment-modal, [data-plan][data-price]');
+  ctaButtons.forEach(function (btn) {
     btn.addEventListener('click', function (e) {
       e.preventDefault();
       openModal(btn.dataset.plan, btn.dataset.price, btn.dataset.duration);
