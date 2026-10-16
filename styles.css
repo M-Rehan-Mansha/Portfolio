@@ -633,6 +633,10 @@ header.s {
   list-style: none;
 }
 
+.mobile-menu-cta {
+  display: none;
+}
+
 /* ── Individual nav link — sliding underline effect ── */
 .nav ul a {
   position: relative;
@@ -1713,9 +1717,9 @@ label {
   box-shadow:
     0 4px 30px rgba(0, 0, 0, 0.45),
     inset 0 1px 0 rgba(255, 255, 255, 0.04);
-  transition: transform 0.35s cubic-bezier(.22,.68,0,1.2),
-              box-shadow 0.35s ease,
-              border-color 0.35s ease;
+  transition: transform 0.35s cubic-bezier(.22, .68, 0, 1.2),
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
   overflow: hidden;
 }
 
@@ -1768,7 +1772,9 @@ label {
 .pricing-card--featured::before {
   content: "";
   position: absolute;
-  top: 0; left: 10%; right: 10%;
+  top: 0;
+  left: 10%;
+  right: 10%;
   height: 2px;
   background: linear-gradient(90deg, transparent, var(--gold), transparent);
   border-radius: 0 0 100% 100%;
@@ -1779,7 +1785,7 @@ label {
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
-  background: linear-gradient(135deg, rgba(184,148,79,0.95), rgba(160,120,56,0.95));
+  background: linear-gradient(135deg, rgba(184, 148, 79, 0.95), rgba(160, 120, 56, 0.95));
   color: #0a0805;
   font-size: 0.62rem;
   font-weight: 800;
@@ -2091,7 +2097,7 @@ label {
     0 0 80px rgba(184, 148, 79, 0.12);
   transform: translateY(24px) scale(0.97);
   opacity: 0;
-  transition: transform 0.35s cubic-bezier(.22,.68,0,1.1), opacity 0.3s ease;
+  transition: transform 0.35s cubic-bezier(.22, .68, 0, 1.1), opacity 0.3s ease;
   color: #f0e6d2;
 }
 
@@ -2099,7 +2105,9 @@ label {
 .pmodal-card::before {
   content: "";
   position: absolute;
-  top: 0; left: 10%; right: 10%;
+  top: 0;
+  left: 10%;
+  right: 10%;
   height: 2px;
   background: linear-gradient(90deg, transparent, var(--gold), transparent);
   border-radius: 0 0 100% 100%;
@@ -2108,20 +2116,25 @@ label {
 /* ── Close button ── */
 .pmodal-close {
   position: absolute;
-  top: 1rem; right: 1rem;
-  width: 34px; height: 34px;
-  display: flex; align-items: center; justify-content: center;
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.12);
+  top: 1rem;
+  right: 1rem;
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 50%;
-  color: rgba(240,230,210,0.7);
+  color: rgba(240, 230, 210, 0.7);
   cursor: pointer;
   transition: background 0.2s, color 0.2s, transform 0.2s;
   z-index: 2;
 }
+
 .pmodal-close:hover {
-  background: rgba(220,80,60,0.2);
-  border-color: rgba(220,80,60,0.4);
+  background: rgba(220, 80, 60, 0.2);
+  border-color: rgba(220, 80, 60, 0.4);
   color: #ff6050;
   transform: rotate(90deg);
 }
@@ -2439,17 +2452,21 @@ label {
   .pmodal-card {
     padding: 1.6rem 1.2rem 1.4rem;
   }
+
   .pmodal-plan {
     font-size: 1.1rem;
   }
+
   .pmodal-detail-row {
     flex-direction: column;
     align-items: flex-start;
     gap: 0.2rem;
   }
+
   .pmodal-val {
     text-align: left;
   }
+
   .pmodal-copy-wrap {
     width: 100%;
     justify-content: space-between;

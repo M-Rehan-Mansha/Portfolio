@@ -124,15 +124,33 @@ var PROJECTS = [
   d.querySelectorAll(".rv").forEach(function (el) { io.observe(el); });
 
   var nav = d.getElementById("nav"), bg = d.getElementById("bg");
-  bg.onclick = function () {
+  function closeMobileNav() {
+    nav.classList.remove("open");
+    bg.classList.remove("open");
+    bg.setAttribute("aria-expanded", "false");
+    d.body.classList.remove("menu-locked");
+  }
+  bg.onclick = function (e) {
+    if (e) e.stopPropagation();
     var o = nav.classList.toggle("open");
-    bg.setAttribute("aria-expanded", o);
+    bg.classList.toggle("open", o);
+    bg.setAttribute("aria-expanded", o ? "true" : "false");
+    d.body.classList.toggle("menu-locked", o);
   };
   d.querySelectorAll("#menu a").forEach(function (a) {
     a.onclick = function () {
-      nav.classList.remove("open");
-      bg.setAttribute("aria-expanded", false);
+      closeMobileNav();
     };
+  });
+  d.addEventListener("click", function (e) {
+    if (nav.classList.contains("open") && !nav.contains(e.target)) {
+      closeMobileNav();
+    }
+  });
+  d.addEventListener("keydown", function (e) {
+    if (e.key === "Escape" && nav.classList.contains("open")) {
+      closeMobileNav();
+    }
   });
 
   var pr = d.getElementById("prog"), hd = d.getElementById("hd"), tl = d.getElementById("tl"),
