@@ -14,7 +14,7 @@
 /* ===== CONFIG: Real Links ===== */
 var CONFIG = {
   facebook: "https://www.facebook.com/share/19p7LzBzhK/?mibextid=wwXIfr",
-  instagram: "https://www.instagram.com/rehanmanshallc",
+  instagram: "https://www.instagram.com/itsrehanmansha",
   linkedin: "https://www.linkedin.com/in/muhammad-rehan-mansha",
   email: "rehanmanshallc@gmail.com",
 };
